@@ -5,8 +5,8 @@ import person
 class TestOo1(unittest.TestCase):
 
     def test_person(self):
-        lar = oo1.Person('Larry', 'Shumlich', 29)
-        lor = oo1.Person('Lorraine', 'Tkachyk', 27)
+        lar = person.Person('Larry', 'Shumlich', 29)
+        lor = person.Person('Lorraine', 'Tkachyk', 27)
         lor.city = 'Calgary'
 
         self.assertEqual(27, lor.age)

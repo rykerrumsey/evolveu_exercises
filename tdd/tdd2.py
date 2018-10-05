@@ -6,6 +6,8 @@ def add_five(number):
 
 
 def my_min(num_array):
+    if len(num_array) == 0:
+        return None
     min_num = num_array[0]
     for num in num_array:
         if num < min_num:
@@ -15,6 +17,8 @@ def my_min(num_array):
 
 
 def my_max(num_array):
+    if len(num_array) == 0:
+        return None
     max_num = num_array[0]
     for num in num_array:
         if num > max_num:
@@ -40,8 +44,7 @@ def to_date(date):
 def date_diff(date1, date2):
     d1 = to_date(date1)
     d2 = to_date(date2)
-
-    return d1.day - d2.day
+    return abs(d1 - d2).days
 
 
 def days_from_end(date):
@@ -50,4 +53,21 @@ def days_from_end(date):
     days = (epoch - formatted_date).days
 
     return days
+
+def contains(value_list, value):
+    if value in value_list:
+        return True
+
+def add_contents(value_list):
+    number = 0
+    for value in value_list:
+        number += value
+    return number
+
+def lookup(value_dict, value_index):
+    mine = ' mine'
+    if contains(value_dict, value_index):
+        return value_dict[value_index] + mine
+    else:
+        return mine
 
