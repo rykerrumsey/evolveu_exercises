@@ -1,6 +1,6 @@
 from Client import Client
 from Room import Room
-import sys
+
 
 class CSpace:
     def __init__(self, workbook):

@@ -1,8 +1,10 @@
 class Room:
+    # be more self documenting
     def __init__(self, room_info):
         self.name, self.type, self.location, self.descriptions, self.issues = room_info
         self.rate = 0
 
+    # change to property
     def add_rate(self, new_rate):
         self.rate = new_rate
 

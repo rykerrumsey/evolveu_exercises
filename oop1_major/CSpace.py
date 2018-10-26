@@ -52,6 +52,7 @@ class CSpace:
 
         return output_string
 
+    # method to extract the clients from the clients spreadsheet
     @staticmethod
     def extract_data(data_sheet):
         data = []
@@ -61,7 +62,6 @@ class CSpace:
                 individual_data.append(cell.value)
 
             data.append(individual_data)
-
         return data
 
     @staticmethod

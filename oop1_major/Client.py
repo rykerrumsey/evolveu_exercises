@@ -1,5 +1,6 @@
 class Client:
     def __init__(self, client_info):
+        # not self documenting use more arguments
         self.name, self.email, self.phone, self.payment_method, self.payment_status, self.issues, self.notes = client_info
         self.first_name, self.last_name = self.name.split()
         self.credits = 0
@@ -9,3 +10,4 @@ class Client:
 
     def add_credits(self, number_of_credits):
         self.credits += number_of_credits
+
