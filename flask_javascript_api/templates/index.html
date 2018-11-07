@@ -5,30 +5,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>EvolveU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/css/main.css" />
 </head>
 <body>
   <button id="json" class="but">JSON</button>
   <button id="array" class="but">ARRAY</button>
   <button id="object" class="but">OBJECT</button>
   <button id="divbuilder" class="but">DIV BUILDER</button>
-  <button id="request" class="but">REQUEST</button>
+  <button id="request" class="but">Get Client By Id</button>
+  <input id="clientId"></input>
   <div class="top">
     <textarea name="top" id="top-input"></textarea>
   </div>
-  <div class="half">
-    LEFT
+  <div id="min" class="half">
+    MIN
   </div>
-  <div class="half">
-    RIGHT
+  <div id="max" class="half">
+    MAX
   </div>
   <div class="bottom">
-    BOTTOM
   </div>
   <div id="divHolder">
 
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="index.js"></script>
+  <script src="/static/js/index.js"></script>
 </body>
 </html>

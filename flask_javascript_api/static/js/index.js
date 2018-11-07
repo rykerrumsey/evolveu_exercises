@@ -20,32 +20,53 @@ const myModule = function() {
 
   let req = document.getElementById("request")
   req.onclick = getRequest
-  
+
   function getRequest() {
-    axios.get('http://www.google.ca')
-      .then(function (response) {
-        console.log(response)
-      });
+    clientIdButton = document.getElementById("clientId")
+    id = clientIdButton.value
+    clientIdButton.value = ""
+    axios.get(`http://localhost:5000/clients/${id}`, {
+      headers: {'credentials': 'include'},
+    })
+    .then(function (response) {
+      buildDiv(response.data)
+    })
   }
 
-  function buildDiv() {
+  function buildDiv(data) {
     let container = document.getElementById("divHolder")
-    let div = document.createElement('DIV')
-    let text = document.createTextNode(blocks.length)
+    container.onclick = removeBlock
 
-    div.id = blocks.length
+    let div = document.createElement('DIV')
+
+    let overlay = document.createElement('DIV')
+    overlay.classList.add("over")
+
+    const card = createCard(data)
+
+    div.id = "block"
     div.classList.add('individualBlock')
-    div.onclick = removeBlock
-    div.appendChild(text)
+    div.appendChild(overlay)
+    div.appendChild(card)
 
     container.appendChild(div)
+  }
 
-    blocks.push(blocks.length)
+  function createCard(data) {
+    let card = document.createElement('UL')
+    card.classList.add('card')
+
+    for(let i = 0; i < data.length; i++) {
+      let listItem = document.createElement('LI')
+      listItem.innerHTML = data[i]
+      card.appendChild(listItem)
+    }
+
+    return card
   }
 
   function removeBlock(e) {
-    let block = e.target
-    block.remove()
+    e.target.parentNode.remove()
   }
 
   function outputJson() {
@@ -62,25 +83,28 @@ const myModule = function() {
       bottom.innerHTML = html + printObject(null, input)
     }
   }
-  
+
   function printObject(e, obj = {}) {
     let tempString = "";
 
     if(Object.keys(obj).length === 0) {
       for (let value in myObject) {
         console.log(value + " : " + myObject[value]);
-      } 
+      }
       return;
     } else {
       for (let value in obj) {
         tempString += value + " : " + obj[value] + "<br/>";
-      } 
+      }
       return tempString;
     }
   }
 
   function printArray(e, arr = []) {
     let temp = "";
+    let min = document.getElementById("min")
+    let max = document.getElementById("max")
+
     if(arr.length === 0) {
       myArray.forEach((x, y) => {
         console.log("key: " + y + " value: " + x);
@@ -90,6 +114,9 @@ const myModule = function() {
       for(let i = 0; i < arr.length; i++) {
         temp += (arr[i] + "<br/>");
       }
+
+      max.innerHTML = Math.max(...arr)
+      min.innerHTML = Math.min(...arr)
     }
 
     return temp;

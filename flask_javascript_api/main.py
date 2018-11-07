@@ -1,9 +1,19 @@
+import json
 from flask import Flask, render_template, request
 from my_sql import runSQL
 
 # setup flask project
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/clients/<id>')
+def specific_client(id):
+    client = runSQL(f'select * from clients \
+                    where client_id = ' + id)
+    return json.dumps(client[0]), 200
 
 @app.route('/clients')
 def client():

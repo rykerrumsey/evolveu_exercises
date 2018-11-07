@@ -4,8 +4,8 @@ import psycopg2
 def runSQL(query_string):
     conn = psycopg2.connect("dbname='postgres' \
         user='postgres' \
-        host='172.18.0.3' \
-        password='mysecretpassword' \
+        host='172.18.0.2' \
+        password='chonga' \
         port='5432'")
 
     # Open a cursor to perform database operations
