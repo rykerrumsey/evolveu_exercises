@@ -1,6 +1,5 @@
 import psycopg2
 
-
 def runSQL(query_string):
     conn = psycopg2.connect("dbname='postgres' \
         user='postgres' \
