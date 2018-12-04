@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "9b573492-c9e0-4494-8085-2fee59838eaa",
+		"name": "cspace-restapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clients Resource",
+			"item": [
+				{
+					"name": "/clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{server}}:{{port}}/clients",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"clients"
+							]
+						},
+						"description": "Returns a list of all the clients."
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<name>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{server}}:{{port}}/client/ryker",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"client",
+								"ryker"
+							]
+						},
+						"description": "Returns a single client by their name."
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<name> AUTHORIZED",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzkwMzMzNzksImlhdCI6MTUzOTAzMzA3OSwibmJmIjoxNTM5MDMzMDc5LCJpZGVudGl0eSI6MX0.7lyMTPWGfAY0jji2V2RJi_UjG6vIYdAg91RH0K2miP8"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{server}}:{{port}}/client/ryker",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"client",
+								"ryker"
+							]
+						},
+						"description": "Returns a single client by their name. Header includes a correct JWT token."
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<name>",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"ryker@outlook.com\",\n\t\"phone\": \"403-704-7103\",\n\t\"payment_type\": \"VISA\",\n\t\"payment_status\": \"PAID\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{port}}/client/ryker",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"client",
+								"ryker"
+							]
+						},
+						"description": "Creates a new client with specified name if it does not exist."
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<name>",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ryker@gmail.com\",\n    \"phone\": \"403-704-5554\",\n    \"payment_type\": \"MASTERCARD\",\n    \"payment_status\": \"PAID\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{port}}/client/ryker",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"client",
+								"ryker"
+							]
+						},
+						"description": "Updates an existing user by their name."
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<name>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{server}}:{{port}}/client/ryker",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"client",
+								"ryker"
+							]
+						},
+						"description": "Deletes a client by their unique id."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register User Resource",
+			"item": [
+				{
+					"name": "/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"ryker\",\n\t\"password\": \"bigpipes\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{port}}/register",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"register"
+							]
+						},
+						"description": "Registers the user and adds them to the database."
+					},
+					"response": []
+				},
+				{
+					"name": "/auth",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"ryker\",\n\t\"password\": \"bigpipes\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}:{{port}}/auth",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth"
+							]
+						},
+						"description": "Creates a new client by the unique id of name if it does not exist."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,28 @@
+components:
+  schema:
+    get:
+      operationId: "store.get"
+      tags:
+        - "Store"
+      summary: "Get a list of all the stores available."
+      description: "Retrieve a list of all the stores."
+      responses:
+        200:
+          description: "Successfully retrieved all the stores"
+          schema:
+            type: "array"
+            items:
+              properties:
+                name:
+                  type: "string"
+                items:
+                  type: "array"
+                  items:
+                    type: "object"
+                    properties:
+                      name:
+                        type: "string"
+                      price:
+                        type: "number"
+                      time_stamp:
+                        type: "string"

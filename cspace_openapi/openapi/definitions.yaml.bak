@@ -1,0 +1,25 @@
+components:
+  schemas:
+    Store:
+      type: object
+      properties:
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            properties:
+              name:
+                type: string
+              price:
+                type: string
+              time_stamp:
+                type: string
+    StoreItems:
+      properties:
+        name:
+          type: string
+        price:
+          type: string
+        time_stamp:
+          type: string
